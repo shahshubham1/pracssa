@@ -3,27 +3,60 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const container = document.getElementById("product-container");
 const searchInput = document.getElementById("searchInput");
+const cartCount = document.getElementById("cart-count");
+
+/* =========================
+   CART FUNCTIONS
+========================= */
 
 function updateCart() {
-    document.getElementById("cart-count").textContent = cart.length;
     localStorage.setItem("cart", JSON.stringify(cart));
+    if (cartCount) {
+        cartCount.textContent = cart.length;
+    }
 }
 
 function addToCart(product) {
     cart.push(product);
     updateCart();
-    alert(product.name + " added to cart 🛒");
+    alert(`${product.name} added to cart 🛒`);
 }
 
+/* =========================
+   LOAD PRODUCTS
+========================= */
+
 async function loadProducts() {
-    const res = await fetch("products.json");
-    products = await res.json();
-    displayProducts(products);
-    updateCart();
+    try {
+        const res = await fetch("products.json");
+        products = await res.json();
+        displayProducts(products);
+        updateCart();
+    } catch (error) {
+        console.error("Error loading products:", error);
+        container.innerHTML = `
+            <h3 style="text-align:center;color:red;">
+                Unable to load products
+            </h3>
+        `;
+    }
 }
+
+/* =========================
+   DISPLAY PRODUCTS
+========================= */
 
 function displayProducts(list) {
     container.innerHTML = "";
+
+    if (!list || list.length === 0) {
+        container.innerHTML = `
+            <h3 style="text-align:center;">
+                No products found
+            </h3>
+        `;
+        return;
+    }
 
     list.forEach(product => {
 
@@ -31,7 +64,8 @@ function displayProducts(list) {
         card.className = "card";
 
         card.innerHTML = `
-            <img src="${product.image}" onerror="this.src='images/no-image.jpg'">
+            <img src="${product.image}" alt="${product.name}"
+                onerror="this.src='images/no-image.jpg'">
 
             <div class="card-content">
 
@@ -43,17 +77,15 @@ function displayProducts(list) {
 
                 <div class="price">₹${product.price}</div>
 
-                <button class="cart-btn">🛒 Add to Cart</button>
-
-                <a class="buy-btn" target="_blank"
-                href="https://wa.me/918660165085?text=I want to order ${encodeURIComponent(product.name)}">
-                Order on WhatsApp
-                </a>
+                <button class="cart-btn-item">
+                    🛒 Add to Cart
+                </button>
 
             </div>
         `;
 
-        card.querySelector(".cart-btn").addEventListener("click", () => {
+        // ADD TO CART EVENT
+        card.querySelector(".cart-btn-item").addEventListener("click", () => {
             addToCart(product);
         });
 
@@ -61,29 +93,43 @@ function displayProducts(list) {
     });
 }
 
-// SEARCH
+/* =========================
+   SEARCH FUNCTION
+========================= */
+
 searchInput.addEventListener("input", () => {
     const text = searchInput.value.toLowerCase();
 
-    const filtered = products.filter(p =>
-        p.name.toLowerCase().includes(text)
+    const filtered = products.filter(product =>
+        product.name.toLowerCase().includes(text)
     );
 
     displayProducts(filtered);
 });
 
-// FILTER
+/* =========================
+   CATEGORY FILTER
+========================= */
+
 document.querySelectorAll(".filter-btn").forEach(btn => {
     btn.addEventListener("click", () => {
 
-        const cat = btn.textContent.trim();
+        const category = btn.textContent.trim();
 
-        if (cat === "All") {
+        if (category === "All") {
             displayProducts(products);
         } else {
-            displayProducts(products.filter(p => p.category === cat));
+            const filtered = products.filter(
+                p => p.category === category
+            );
+            displayProducts(filtered);
         }
+
     });
 });
+
+/* =========================
+   INIT
+========================= */
 
 loadProducts();
