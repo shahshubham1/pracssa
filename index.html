@@ -119,6 +119,21 @@ margin-bottom:50px;
 color:#222;
 }
 
+/* Search */
+
+.search-box{
+max-width:500px;
+margin:0 auto 40px;
+}
+
+.search-box input{
+width:100%;
+padding:15px;
+border-radius:10px;
+border:1px solid #ddd;
+font-size:16px;
+}
+
 /* Products */
 
 .products{
@@ -157,18 +172,24 @@ margin-bottom:10px;
 font-size:22px;
 font-weight:700;
 color:#ff4081;
+margin-bottom:10px;
+}
+
+.description{
+font-size:14px;
+color:#666;
 margin-bottom:15px;
 }
 
 .buy-btn{
+display:block;
 width:100%;
-border:none;
+text-align:center;
 padding:12px;
 background:#ff4081;
 color:white;
+text-decoration:none;
 border-radius:8px;
-cursor:pointer;
-font-size:16px;
 }
 
 /* About */
@@ -191,10 +212,6 @@ font-size:18px;
 background:linear-gradient(135deg,#ff4081,#ff9800);
 color:white;
 text-align:center;
-}
-
-.contact h2{
-margin-bottom:20px;
 }
 
 .contact p{
@@ -244,9 +261,11 @@ font-size:32px;
 
 </style>
 </head>
+
 <body>
 
 <header>
+
 <div class="logo">Shyam Creation</div>
 
 <nav>
@@ -255,61 +274,38 @@ font-size:32px;
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
+
 </header>
 
 <section class="hero" id="home">
+
 <div class="hero-content">
+
 <h1>SHYAM CREATION</h1>
+
 <p>Elegant Dresses for Every Occasion</p>
 
 <a href="#products" class="btn">
 Shop Collection
 </a>
+
 </div>
+
 </section>
 
 <section class="section" id="products">
 
-<h2 class="section-title">Featured Dresses</h2>
+<h2 class="section-title">Our Collection</h2>
 
-<div class="products">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800">
-<div class="card-content">
-<h3>Designer Party Dress</h3>
-<div class="price">₹2,499</div>
-<button class="buy-btn">Buy Now</button>
-</div>
+<div class="search-box">
+<input
+type="text"
+id="searchInput"
+placeholder="Search dresses..."
+>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800">
-<div class="card-content">
-<h3>Premium Floral Dress</h3>
-<div class="price">₹1,999</div>
-<button class="buy-btn">Buy Now</button>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800">
-<div class="card-content">
-<h3>Wedding Collection</h3>
-<div class="price">₹3,999</div>
-<button class="buy-btn">Buy Now</button>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800">
-<div class="card-content">
-<h3>Modern Fashion Gown</h3>
-<div class="price">₹2,999</div>
-<button class="buy-btn">Buy Now</button>
-</div>
-</div>
-
+<div class="products" id="product-container">
 </div>
 
 </section>
@@ -319,9 +315,9 @@ Shop Collection
 <h2 class="section-title">About Shyam Creation</h2>
 
 <p>
-Welcome to Shyam Creation. We bring stylish, elegant and trendy dresses
-for women at affordable prices. Our collection is carefully selected
-to provide comfort, beauty and confidence for every occasion.
+Welcome to Shyam Creation.
+We provide stylish, trendy and premium dresses for women.
+Browse our latest collection and order directly through WhatsApp.
 </p>
 
 </section>
@@ -330,22 +326,27 @@ to provide comfort, beauty and confidence for every occasion.
 
 <h2>Contact Us</h2>
 
-<p><strong>Store Name:</strong> Shyam Creation</p>
+<p><strong>Store:</strong> Shyam Creation</p>
 <p><strong>Owner:</strong> Shubham Shah</p>
 <p><strong>Phone:</strong> +91 8660165085</p>
-<p><strong>WhatsApp:</strong> +91 8660165085</p>
 
-<a class="whatsapp"
-href="https://wa.me/918660165085">
-Order on WhatsApp
+<a
+class="whatsapp"
+href="https://wa.me/918660165085"
+target="_blank">
+Chat on WhatsApp
 </a>
 
 </section>
 
 <footer>
-<p>© 2026 Shyam Creation. All Rights Reserved.</p>
+
+<p>© 2026 Shyam Creation</p>
 <p>Owner: Shubham Shah</p>
+
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
