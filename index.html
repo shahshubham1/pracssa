@@ -1,317 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Shyam Creation | Women's Fashion Store</title>
 
-<meta name="description" content="Shyam Creation - Latest Sarees, Kurtis, Anarkalis and Western Wear. Order directly through WhatsApp.">
-<meta name="keywords" content="Saree, Kurti, Anarkali, Western Wear, Shyam Creation">
-<meta name="author" content="Shubham Shah">
+<meta name="description" content="Shyam Creation - Latest Sarees, Kurtis, Anarkalis and Western Wear. Order easily online.">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* RESET */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-html{scroll-behavior:smooth;}
-
-body{
-background:#fafafa;
-color:#333;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
+body{background:#fafafa;}
 
 /* HEADER */
 header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
+position:fixed;top:0;left:0;width:100%;
 background:#fff;
-padding:15px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-shadow:0 2px 15px rgba(0,0,0,.08);
+padding:12px 6%;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
 z-index:1000;
 }
 
-.logo{
-font-size:30px;
-font-weight:800;
-color:#ff4081;
-}
+.logo{font-size:24px;font-weight:800;color:#ff4081;}
 
-nav{
+.nav{
 display:flex;
-align-items:center;
 gap:15px;
+align-items:center;
 }
 
-nav a{
-text-decoration:none;
-font-weight:500;
-color:#333;
-}
-
-nav a:hover{
-color:#ff4081;
-}
-
-/* CART BUTTON */
-.cart-btn{
-text-decoration:none;
-background:#ff4081;
-color:white;
-padding:8px 15px;
+.nav input{
+padding:8px 12px;
+border:1px solid #ddd;
 border-radius:20px;
+outline:none;
+}
+
+.cart{
+background:#ff4081;
+color:#fff;
+padding:8px 14px;
+border-radius:20px;
+text-decoration:none;
 font-weight:600;
+position:relative;
+}
+
+#cart-count{
+background:red;
+color:#fff;
+font-size:12px;
+padding:2px 6px;
+border-radius:50%;
+position:absolute;
+top:-8px;
+right:-8px;
 }
 
 /* HERO */
 .hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+height:80vh;
+background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
 url('images/hero-banner.jpg');
 background-size:cover;
 background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
+margin-top:60px;
 }
 
-/* SECTION */
-.section{
-padding:90px 8%;
-}
-
-.section-title{
-font-size:42px;
-text-align:center;
-margin-bottom:30px;
-}
-
-/* SEARCH */
-.search-box{
-max-width:600px;
-margin:auto;
-margin-bottom:25px;
-}
-
-.search-box input{
-width:100%;
-padding:15px;
-border:1px solid #ddd;
-border-radius:10px;
-font-size:16px;
-}
-
-/* FILTERS */
+/* FILTER */
 .filters{
-text-align:center;
-margin-bottom:25px;
+display:flex;
+gap:10px;
+justify-content:center;
+padding:20px;
+flex-wrap:wrap;
 }
 
 .filter-btn{
-padding:10px 20px;
+padding:8px 15px;
 border:none;
+background:#eee;
+border-radius:20px;
+cursor:pointer;
+}
+
+.filter-btn:hover{
 background:#ff4081;
 color:white;
-border-radius:25px;
-margin:5px;
-cursor:pointer;
-font-weight:600;
 }
 
-/* PRODUCTS GRID */
+/* PRODUCTS */
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:20px 6%;
 }
 
-/* CARD */
 .card{
-background:white;
-border-radius:20px;
+background:#fff;
+border-radius:15px;
 overflow:hidden;
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-6px);
+box-shadow:0 5px 15px rgba(0,0,0,.1);
 }
 
 .card img{
 width:100%;
-height:350px;
+height:280px;
 object-fit:cover;
 }
 
-.card-content{
-padding:20px;
-}
+.card-content{padding:15px;}
 
-.category{
-display:inline-block;
-background:#ffe4ef;
-color:#ff4081;
-padding:5px 12px;
-border-radius:20px;
-font-size:13px;
-}
+.price{color:#ff4081;font-weight:700;}
 
-.price{
-font-size:24px;
-font-weight:700;
-color:#ff4081;
-margin:15px 0;
-}
-
-/* BUTTONS */
-.cart-btn-item{
+.btn{
 width:100%;
-padding:12px;
-margin:10px 0;
+padding:10px;
 border:none;
-border-radius:10px;
-background:#ff9800;
-color:white;
+cursor:pointer;
+margin-top:8px;
+border-radius:8px;
 font-weight:600;
+}
+
+.add{background:#ff9800;color:white;}
+.wish{background:#eee;}
+
+/* TOAST */
+#toast{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:#333;
+color:#fff;
+padding:10px 20px;
+border-radius:20px;
+display:none;
+}
+
+/* MODAL */
+.modal{
+position:fixed;
+top:0;left:0;width:100%;height:100%;
+background:rgba(0,0,0,.6);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.modal-content{
+background:#fff;
+padding:20px;
+border-radius:10px;
+width:300px;
+}
+
+.close{
+float:right;
 cursor:pointer;
 }
 
-.buy-btn{
-display:block;
-text-align:center;
-background:#25D366;
-color:white;
-text-decoration:none;
-padding:12px;
-border-radius:10px;
-font-weight:600;
-}
-
-/* SOCIAL */
-.social-icons{
-margin-top:20px;
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.social-icons a{
-text-decoration:none;
-background:white;
-padding:10px 15px;
-border-radius:25px;
-font-weight:600;
-color:#333;
-transition:0.3s;
-}
-
-.social-icons a:hover{
-background:#000;
-color:#fff;
-}
-
-/* CONTACT */
-.contact{
-background:linear-gradient(135deg,#ff4081,#ff9800);
-color:white;
-text-align:center;
-}
-
-/* FOOTER */
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:25px;
-}
-
-/* WHATSAPP FLOAT */
-.whatsapp-float{
-position:fixed;
-right:20px;
-bottom:20px;
-width:60px;
-height:60px;
-background:#25D366;
-color:white;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
-text-decoration:none;
-}
-
-/* CART BOX */
-.cart-box{
-position:fixed;
-left:20px;
-bottom:20px;
-background:#111;
-color:#fff;
-padding:10px 15px;
-border-radius:10px;
-font-weight:600;
-z-index:999;
-}
-
 </style>
-
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
-
 <div class="logo">Shyam Creation</div>
 
-<nav>
-<a href="#products">Products</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
+<div class="nav">
+<input type="text" id="searchInput" placeholder="Search products...">
 
-<a href="checkout.html" class="cart-btn">
-🛒 Checkout
+<a href="checkout.html" class="cart">
+🛒 Cart <span id="cart-count">0</span>
 </a>
-</nav>
-
+</div>
 </header>
 
-<!-- CART STATUS -->
-<div class="cart-box">
-🛒 Cart: <span id="cart-count">0</span>
-</div>
-
-<!-- HERO -->
 <section class="hero"></section>
 
-<!-- PRODUCTS -->
-<section class="section" id="products">
-
-<h2 class="section-title">Our Collection</h2>
-
-<div class="search-box">
-<input type="text" id="searchInput" placeholder="Search products...">
-</div>
-
+<!-- FILTER -->
 <div class="filters">
 <button class="filter-btn">All</button>
 <button class="filter-btn">Saree</button>
@@ -320,67 +195,20 @@ z-index:999;
 <button class="filter-btn">Western</button>
 </div>
 
+<!-- PRODUCTS -->
 <div class="products" id="product-container"></div>
 
-</section>
+<!-- TOAST -->
+<div id="toast"></div>
 
-<!-- ABOUT -->
-<section class="section" id="about">
-
-<h2 class="section-title">About Shyam Creation</h2>
-
-<p style="max-width:900px;margin:auto;text-align:center;line-height:1.8;">
-We offer premium Sarees, Kurtis, Anarkalis and Western Wear.
-Order easily via WhatsApp or checkout page.
-</p>
-
-</section>
-
-<!-- CONTACT -->
-<section class="section contact" id="contact">
-
-<h2>Contact Us</h2>
-
-<p>Store: Shyam Creation</p>
-<p>Owner: Shubham Shah</p>
-<p>Phone: +91 8660165085</p>
-
-
-<!-- SOCIAL -->
-<div class="social-icons">
-
-    <a class="social instagram" href="https://instagram.com" target="_blank">
-        <svg viewBox="0 0 24 24">
-            <path d="M7 2C4 2 2 4 2 7v10c0 3 2 5 5 5h10c3 0 5-2 5-5V7c0-3-2-5-5-5H7z"/>
-        </svg>
-    </a>
-
-    <a class="social facebook" href="https://facebook.com" target="_blank">
-        <svg viewBox="0 0 24 24">
-            <path d="M22 12a10 10 0 10-11 10v-7h-2v-3h2V9c0-2 1-3 3-3h2v3h-2v2h2l-1 3h-1v7a10 10 0 008-10z"/>
-        </svg>
-    </a>
-
-    <a class="social x" href="https://x.com" target="_blank">
-        <svg viewBox="0 0 24 24">
-            <path d="M18 2h3l-7 8 8 12h-6l-5-7-6 7H2l7-8L2 2h6l4 6 6-6z"/>
-        </svg>
-    </a>
-
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">X</span>
+<div id="modal-body"></div>
+</div>
 </div>
 
-</section>
-
-<!-- FOOTER -->
-<footer>
-<p>© 2026 Shyam Creation</p>
-<p>Owner: Shubham Shah</p>
-</footer>
-
-<!-- FLOAT WHATSAPP -->
-<a class="whatsapp-float" href="https://wa.me/918660165085" target="_blank">💬</a>
-
-<!-- SCRIPT -->
 <script src="script.js"></script>
 
 </body>
