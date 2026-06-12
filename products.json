@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Designer Party Dress",
+    "price": "2499",
+    "image": "images/dress1.jpg"
+  },
+  {
+    "name": "Premium Floral Dress",
+    "price": "1999",
+    "image": "images/dress2.jpg"
+  },
+  {
+    "name": "Wedding Collection",
+    "price": "3999",
+    "image": "images/dress3.jpg"
+  }
+]
