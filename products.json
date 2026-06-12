@@ -1,42 +1,66 @@
 [
-{
-"id": 1,
-"category": "Anarkali",
-"name": "Wine Party Suit",
-"price": 2999,
-"image": "images/wine-party-suit-01.jpg",
-"description": "Elegant embroidered party wear suit"
-},
-{
-"id": 2,
-"category": "Anarkali",
-"name": "Sky Blue Anarkali",
-"price": 3499,
-"image": "images/sky-blue-anarkali-01.jpg",
-"description": "Premium embroidered Anarkali with dupatta"
-},
-{
-"id": 3,
-"category": "Western",
-"name": "Pink Designer Coord Set",
-"price": 2799,
-"image": "images/pink-designer-coordset-01.jpg",
-"description": "Trendy designer coord set"
-},
-{
-"id": 4,
-"category": "Kurti",
-"name": "Designer Kurti",
-"price": 1499,
-"image": "images/designer-kurti-01.jpg",
-"description": "Comfortable and stylish daily wear"
-},
-{
-"id": 5,
-"category": "Saree",
-"name": "Silk Saree",
-"price": 3999,
-"image": "images/silk-saree-01.jpg",
-"description": "Premium silk saree collection"
-}
+  {
+    "id": 1,
+    "name": "Designer Saree",
+    "category": "Saree",
+    "price": 1499,
+    "image": "images/saree-01.jpg",
+    "description": "Elegant designer saree for parties and special occasions."
+  },
+  {
+    "id": 2,
+    "name": "Silk Saree",
+    "category": "Saree",
+    "price": 1999,
+    "image": "images/saree-02.jpg",
+    "description": "Premium silk saree with traditional design."
+  },
+  {
+    "id": 3,
+    "name": "Printed Kurti",
+    "category": "Kurti",
+    "price": 899,
+    "image": "images/kurti-01.jpg",
+    "description": "Comfortable printed kurti for daily wear."
+  },
+  {
+    "id": 4,
+    "name": "Cotton Kurti",
+    "category": "Kurti",
+    "price": 1099,
+    "image": "images/kurti-02.jpg",
+    "description": "Soft cotton kurti for casual and office wear."
+  },
+  {
+    "id": 5,
+    "name": "Festive Anarkali",
+    "category": "Anarkali",
+    "price": 1899,
+    "image": "images/anarkali-01.jpg",
+    "description": "Beautiful festive anarkali suit."
+  },
+  {
+    "id": 6,
+    "name": "Wedding Anarkali",
+    "category": "Anarkali",
+    "price": 2499,
+    "image": "images/anarkali-02.jpg",
+    "description": "Premium wedding collection anarkali."
+  },
+  {
+    "id": 7,
+    "name": "Western Maxi Dress",
+    "category": "Western",
+    "price": 1599,
+    "image": "images/western-01.jpg",
+    "description": "Stylish western maxi dress."
+  },
+  {
+    "id": 8,
+    "name": "Party Wear Dress",
+    "category": "Western",
+    "price": 2199,
+    "image": "images/western-02.jpg",
+    "description": "Fashionable party wear western dress."
+  }
 ]
