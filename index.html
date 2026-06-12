@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shyam Creation | Online Dress Store</title>
+<title>Shyam Creation | Women's Fashion Store</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -17,39 +17,34 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
 background:#fafafa;
+color:#333;
 }
-
-/* Header */
 
 header{
 position:fixed;
 top:0;
+left:0;
 width:100%;
+background:white;
 padding:15px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(255,255,255,0.95);
-backdrop-filter:blur(10px);
+box-shadow:0 2px 15px rgba(0,0,0,.08);
 z-index:1000;
-box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
 
 .logo{
-font-size:28px;
+font-size:30px;
 font-weight:800;
 color:#ff4081;
 }
 
 nav a{
 text-decoration:none;
-margin-left:25px;
+margin-left:20px;
 color:#333;
 font-weight:500;
 }
@@ -58,55 +53,40 @@ nav a:hover{
 color:#ff4081;
 }
 
-/* Hero */
-
 .hero{
 height:100vh;
 background:
-linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
-url('https://images.unsplash.com/photo-1496747611176-843222e1e57?auto=format&fit=crop&w=1600&q=80');
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600');
 background-size:cover;
 background-position:center;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
 text-align:center;
 padding:20px;
-}
-
-.hero-content{
 color:white;
-max-width:800px;
 }
 
 .hero h1{
-font-size:80px;
+font-size:72px;
 font-weight:800;
-letter-spacing:4px;
-margin-bottom:15px;
 }
 
 .hero p{
-font-size:24px;
-margin-bottom:35px;
+font-size:22px;
+margin:15px 0 30px;
 }
 
-.btn{
+.hero-btn{
 display:inline-block;
 padding:15px 35px;
-background:linear-gradient(45deg,#ff4081,#ff9800);
+background:#ff4081;
 color:white;
 text-decoration:none;
-border-radius:40px;
+border-radius:50px;
 font-weight:600;
-transition:.3s;
 }
-
-.btn:hover{
-transform:translateY(-3px);
-}
-
-/* Section */
 
 .section{
 padding:80px 8%;
@@ -115,15 +95,13 @@ padding:80px 8%;
 .section-title{
 text-align:center;
 font-size:42px;
-margin-bottom:50px;
-color:#222;
+margin-bottom:30px;
 }
 
-/* Search */
-
 .search-box{
-max-width:500px;
-margin:0 auto 40px;
+max-width:600px;
+margin:auto;
+margin-bottom:25px;
 }
 
 .search-box input{
@@ -134,11 +112,30 @@ border:1px solid #ddd;
 font-size:16px;
 }
 
-/* Products */
+.filters{
+text-align:center;
+margin-bottom:30px;
+}
+
+.filter-btn{
+padding:10px 20px;
+border:none;
+background:#ff4081;
+color:white;
+border-radius:25px;
+margin:5px;
+cursor:pointer;
+}
+
+.product-count{
+text-align:center;
+margin-bottom:25px;
+font-weight:600;
+}
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:25px;
 }
 
@@ -151,12 +148,12 @@ transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-8px);
+transform:translateY(-5px);
 }
 
 .card img{
 width:100%;
-height:320px;
+height:350px;
 object-fit:cover;
 }
 
@@ -164,35 +161,34 @@ object-fit:cover;
 padding:20px;
 }
 
-.card h3{
+.category{
+display:inline-block;
+padding:5px 12px;
+background:#ffe4ef;
+color:#ff4081;
+border-radius:20px;
+font-size:13px;
 margin-bottom:10px;
 }
 
 .price{
-font-size:22px;
+font-size:24px;
 font-weight:700;
 color:#ff4081;
-margin-bottom:10px;
-}
-
-.description{
-font-size:14px;
-color:#666;
-margin-bottom:15px;
+margin:10px 0;
 }
 
 .buy-btn{
 display:block;
-width:100%;
 text-align:center;
-padding:12px;
-background:#ff4081;
+background:#25D366;
 color:white;
 text-decoration:none;
-border-radius:8px;
+padding:12px;
+border-radius:10px;
+margin-top:15px;
+font-weight:600;
 }
-
-/* About */
 
 .about{
 background:#fff5f8;
@@ -200,13 +196,10 @@ text-align:center;
 }
 
 .about p{
-max-width:800px;
+max-width:900px;
 margin:auto;
 line-height:1.8;
-font-size:18px;
 }
-
-/* Contact */
 
 .contact{
 background:linear-gradient(135deg,#ff4081,#ff9800);
@@ -216,21 +209,7 @@ text-align:center;
 
 .contact p{
 margin:10px 0;
-font-size:18px;
 }
-
-.whatsapp{
-display:inline-block;
-margin-top:20px;
-padding:15px 35px;
-background:white;
-color:#25D366;
-text-decoration:none;
-font-weight:700;
-border-radius:40px;
-}
-
-/* Footer */
 
 footer{
 background:#111;
@@ -242,7 +221,7 @@ padding:20px;
 @media(max-width:768px){
 
 .hero h1{
-font-size:45px;
+font-size:42px;
 }
 
 .hero p{
@@ -269,7 +248,6 @@ font-size:32px;
 <div class="logo">Shyam Creation</div>
 
 <nav>
-<a href="#home">Home</a>
 <a href="#products">Products</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
@@ -277,15 +255,15 @@ font-size:32px;
 
 </header>
 
-<section class="hero" id="home">
+<section class="hero">
 
-<div class="hero-content">
+<div>
 
 <h1>SHYAM CREATION</h1>
 
-<p>Elegant Dresses for Every Occasion</p>
+<p>Elegant Dresses For Every Occasion</p>
 
-<a href="#products" class="btn">
+<a href="#products" class="hero-btn">
 Shop Collection
 </a>
 
@@ -301,12 +279,29 @@ Shop Collection
 <input
 type="text"
 id="searchInput"
-placeholder="Search dresses..."
->
+placeholder="Search products...">
 </div>
 
-<div class="products" id="product-container">
+<div class="filters">
+
+<button class="filter-btn" onclick="filterProducts('All')">All</button>
+
+<button class="filter-btn" onclick="filterProducts('Saree')">Saree</button>
+
+<button class="filter-btn" onclick="filterProducts('Kurti')">Kurti</button>
+
+<button class="filter-btn" onclick="filterProducts('Anarkali')">Anarkali</button>
+
+<button class="filter-btn" onclick="filterProducts('Western')">Western</button>
+
 </div>
+
+<div class="product-count">
+Products Available:
+<span id="productCount">0</span>
+</div>
+
+<div class="products" id="product-container"></div>
 
 </section>
 
@@ -315,8 +310,8 @@ placeholder="Search dresses..."
 <h2 class="section-title">About Shyam Creation</h2>
 
 <p>
-Welcome to Shyam Creation.
-We provide stylish, trendy and premium dresses for women.
+Welcome to Shyam Creation. We offer fashionable sarees,
+kurtis, anarkalis, western wear and designer collections.
 Browse our latest collection and order directly through WhatsApp.
 </p>
 
@@ -331,7 +326,7 @@ Browse our latest collection and order directly through WhatsApp.
 <p><strong>Phone:</strong> +91 8660165085</p>
 
 <a
-class="whatsapp"
+class="buy-btn"
 href="https://wa.me/918660165085"
 target="_blank">
 Chat on WhatsApp
@@ -342,7 +337,6 @@ Chat on WhatsApp
 <footer>
 
 <p>© 2026 Shyam Creation</p>
-<p>Owner: Shubham Shah</p>
 
 </footer>
 
