@@ -1,134 +1,89 @@
 let products = [];
-let currentCategory = "All";
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const container = document.getElementById("product-container");
 const searchInput = document.getElementById("searchInput");
-const productCount = document.getElementById("productCount");
 
-async function loadProducts() {
-    try {
-        const response = await fetch("products.json");
-        products = await response.json();
-
-        displayProducts(products);
-    } catch (error) {
-        console.error("Error loading products:", error);
-
-        container.innerHTML = `
-            <h3 style="text-align:center;color:red;">
-                Unable to load products
-            </h3>
-        `;
-    }
+function updateCart() {
+    document.getElementById("cart-count").textContent = cart.length;
+    localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-function displayProducts(productList) {
+function addToCart(product) {
+    cart.push(product);
+    updateCart();
+    alert(product.name + " added to cart 🛒");
+}
 
+async function loadProducts() {
+    const res = await fetch("products.json");
+    products = await res.json();
+    displayProducts(products);
+    updateCart();
+}
+
+function displayProducts(list) {
     container.innerHTML = "";
 
-    productCount.textContent = productList.length;
-
-    if (productList.length === 0) {
-        container.innerHTML = `
-            <h3 style="text-align:center;">
-                No products found
-            </h3>
-        `;
-        return;
-    }
-
-    productList.forEach(product => {
+    list.forEach(product => {
 
         const card = document.createElement("div");
-
         card.className = "card";
 
         card.innerHTML = `
-            <img
-                src="${product.image}"
-                alt="${product.name}"
-                onerror="this.src='images/no-image.jpg'"
-            >
+            <img src="${product.image}" onerror="this.src='images/no-image.jpg'">
 
             <div class="card-content">
 
-                <span class="category">
-                    ${product.category}
-                </span>
+                <span class="category">${product.category}</span>
 
                 <h3>${product.name}</h3>
 
                 <p>${product.description}</p>
 
-                <div class="price">
-                    ₹${product.price}
-                </div>
+                <div class="price">₹${product.price}</div>
 
-                <a
-                    class="buy-btn"
-                    target="_blank"
-                    href="https://wa.me/918660165085?text=Hello%20Shyam%20Creation,%20I%20want%20to%20order%20${encodeURIComponent(product.name)}"
-                >
-                    Order on WhatsApp
+                <button class="cart-btn">🛒 Add to Cart</button>
+
+                <a class="buy-btn" target="_blank"
+                href="https://wa.me/918660165085?text=I want to order ${encodeURIComponent(product.name)}">
+                Order on WhatsApp
                 </a>
 
             </div>
         `;
 
+        card.querySelector(".cart-btn").addEventListener("click", () => {
+            addToCart(product);
+        });
+
         container.appendChild(card);
     });
 }
 
-function filterProducts(category) {
-
-    currentCategory = category;
-
-    let filtered = products;
-
-    if (category !== "All") {
-        filtered = products.filter(
-            product => product.category === category
-        );
-    }
-
-    const searchText = searchInput.value.toLowerCase();
-
-    if (searchText) {
-        filtered = filtered.filter(product =>
-            product.name.toLowerCase().includes(searchText)
-        );
-    }
-
-    displayProducts(filtered);
-}
-
+// SEARCH
 searchInput.addEventListener("input", () => {
+    const text = searchInput.value.toLowerCase();
 
-    const searchText = searchInput.value.toLowerCase();
-
-    let filtered = products;
-
-    if (currentCategory !== "All") {
-        filtered = filtered.filter(
-            product => product.category === currentCategory
-        );
-    }
-
-    filtered = filtered.filter(product =>
-        product.name.toLowerCase().includes(searchText)
+    const filtered = products.filter(p =>
+        p.name.toLowerCase().includes(text)
     );
 
     displayProducts(filtered);
 });
 
-document.querySelectorAll(".filter-btn").forEach(button => {
+// FILTER
+document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
 
-    button.addEventListener("click", () => {
+        const cat = btn.textContent.trim();
 
-        filterProducts(button.textContent.trim());
-
+        if (cat === "All") {
+            displayProducts(products);
+        } else {
+            displayProducts(products.filter(p => p.category === cat));
+        }
     });
-
 });
 
 loadProducts();
