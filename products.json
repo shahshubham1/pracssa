@@ -1,17 +1,29 @@
 [
   {
-    "name": "Designer Party Dress",
-    "price": "2499",
-    "image": "images/dress1.jpg"
-  },
+  "id": 1,
+  "name": "Pink Anarkali Suit",
+  "price": "2999",
+  "size": "S,M,L,XL",
+  "color": "Pink",
+  "image": "images/pink-anarkali.jpg",
+  "description": "Premium party wear collection"
+},
   {
-    "name": "Premium Floral Dress",
-    "price": "1999",
-    "image": "images/dress2.jpg"
-  },
+  "id": 2,
+  "name": "Red casual Anarkali Suit",
+  "price": "2999",
+  "size": "S,M,L,XL",
+  "color": "Red",
+  "image": "images/pink-anarkali.jpg",
+  "description": "Premium party wear collection"
+},
   {
-    "name": "Wedding Collection",
-    "price": "3999",
-    "image": "images/dress3.jpg"
-  }
+  "id": 3,
+  "name": "Anarkali Suit",
+  "price": "2999",
+  "size": "S,M,L,XL",
+  "color": "Pink",
+  "image": "images/pink-anarkali.jpg",
+  "description": "Premium party wear collection"
+}
 ]
