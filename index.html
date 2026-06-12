@@ -81,34 +81,7 @@ padding:20px;
 color:white;
 }
 
-.hero-content{
-max-width:800px;
-}
-
-.hero h1{
-font-size:70px;
-font-weight:800;
-}
-
-.hero p{
-font-size:22px;
-margin:20px 0;
-}
-
-.hero-btn{
-display:inline-block;
-padding:15px 35px;
-background:#ff4081;
-color:white;
-text-decoration:none;
-border-radius:50px;
-font-weight:600;
-transition:.3s;
-}
-
-.hero-btn:hover{
-background:#e73370;
-}
+/* IMPORTANT: removed hero text completely */
 
 /* Section */
 
@@ -321,10 +294,10 @@ font-size:32px;
 </style>
 
 </head>
+
 <body>
 
 <header>
-
 <div class="logo">Shyam Creation</div>
 
 <nav>
@@ -332,137 +305,72 @@ font-size:32px;
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
-
 </header>
 
-<!-- Hero -->
-
-<section class="hero">
-
-<div class="hero-content">
-
-<h1>SHYAM CREATION</h1>
-
-<p>
-Elegant Sarees, Kurtis, Anarkalis & Western Wear
-for Every Occasion
-</p>
-
-<a href="#products" class="hero-btn">
-Shop Collection
-</a>
-
-</div>
-
-</section>
+<!-- HERO (clean image only, no text) -->
+<section class="hero"></section>
 
 <!-- Products -->
-
 <section class="section" id="products">
 
 <h2 class="section-title">Our Collection</h2>
 
 <div class="search-box">
-
-<input
-type="text"
-id="searchInput"
-placeholder="Search products...">
-
+<input type="text" id="searchInput" placeholder="Search products...">
 </div>
 
 <div class="filters">
-
 <button class="filter-btn">All</button>
 <button class="filter-btn">Saree</button>
 <button class="filter-btn">Kurti</button>
 <button class="filter-btn">Anarkali</button>
 <button class="filter-btn">Western</button>
-
 </div>
 
 <div class="product-count">
-
-Products Available:
-<span id="productCount">0</span>
-
+Products Available: <span id="productCount">0</span>
 </div>
 
-<div class="products" id="product-container">
-
-<!-- Products load automatically from products.json -->
-
-</div>
+<div class="products" id="product-container"></div>
 
 </section>
 
 <!-- About -->
-
 <section class="section about" id="about">
 
-<h2 class="section-title">
-About Shyam Creation
-</h2>
+<h2 class="section-title">About Shyam Creation</h2>
 
 <p>
-
 Welcome to Shyam Creation.
-
 We specialize in fashionable Sarees, Kurtis,
 Anarkalis and Western Wear.
-
 Browse our latest collection and place your order
-directly through WhatsApp with just one click.
-
+directly through WhatsApp.
 </p>
 
 </section>
 
 <!-- Contact -->
-
 <section class="section contact" id="contact">
 
 <h2>Contact Us</h2>
 
 <p><strong>Store:</strong> Shyam Creation</p>
-
 <p><strong>Owner:</strong> Shubham Shah</p>
-
 <p><strong>Phone:</strong> +91 8660165085</p>
 
-<p>
-Sarees | Kurtis | Anarkalis | Western Wear
-</p>
-
-<a
-class="buy-btn"
-href="https://wa.me/918660165085"
-target="_blank">
+<a class="buy-btn" href="https://wa.me/918660165085" target="_blank">
 Chat on WhatsApp
 </a>
 
 </section>
 
-<!-- Footer -->
-
 <footer>
-
-<p>
-© 2026 Shyam Creation. All Rights Reserved.
-</p>
-
-<p>
-Owner: Shubham Shah
-</p>
-
+<p>© 2026 Shyam Creation. All Rights Reserved.</p>
+<p>Owner: Shubham Shah</p>
 </footer>
 
-<!-- Floating WhatsApp -->
-
-<a
-href="https://wa.me/918660165085"
-class="whatsapp-float"
-target="_blank">
+<a href="https://wa.me/918660165085" class="whatsapp-float" target="_blank">
 💬
 </a>
 
