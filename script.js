@@ -58,7 +58,7 @@ div.innerHTML=`
 <p class="price">₹${p.price}</p>
 
 <button class="btn add">Add to Cart</button>
-<button class="btn wish">Wishlist ❤️</button>
+<button class="wishlist-btn">♡</button>
 <button class="btn">Quick View</button>
 </div>
 `;
