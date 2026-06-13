@@ -1,4 +1,5 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let shipping = JSON.parse(localStorage.getItem("shipping")) || {};
 
 const container = document.getElementById("cart-container");
 
@@ -19,6 +20,7 @@ function renderCart() {
 
     let total = 0;
 
+    // CART ITEMS
     cart.forEach((item, index) => {
 
         total += item.price;
@@ -44,23 +46,69 @@ function renderCart() {
         container.appendChild(div);
     });
 
-    // TOTAL SECTION
+    // TOTAL
     const totalDiv = document.createElement("div");
     totalDiv.className = "total";
     totalDiv.innerHTML = `Total: ₹${total}`;
     container.appendChild(totalDiv);
 
-    // WHATSAPP ORDER BUTTON
-    const message = cart.map(p => `• ${p.name} - ₹${p.price}`).join("%0A");
+    // SHIPPING FORM
+    const form = document.createElement("form");
 
-    const checkoutBtn = document.createElement("a");
-    checkoutBtn.className = "checkout-btn";
-    checkoutBtn.target = "_blank";
-    checkoutBtn.href = `https://wa.me/918660165085?text=Hello Shyam Creation,%0AI want to order:%0A${message}%0A%0ATotal: ₹${total}`;
+    form.innerHTML = `
+        <h3>🚚 Shipping Details</h3>
 
-    checkoutBtn.innerText = "Place Order on WhatsApp";
+        <input type="text" id="name" placeholder="Full Name" required value="${shipping.name || ""}">
+        <input type="text" id="phone" placeholder="Phone Number" required value="${shipping.phone || ""}">
+        <input type="text" id="address" placeholder="Address" required value="${shipping.address || ""}">
+        <input type="text" id="city" placeholder="City" required value="${shipping.city || ""}">
+        <input type="text" id="state" placeholder="State" required value="${shipping.state || ""}">
+        <input type="text" id="pincode" placeholder="Pincode" required value="${shipping.pincode || ""}">
 
-    container.appendChild(checkoutBtn);
+        <button class="checkout-btn">Place Order on WhatsApp</button>
+    `;
+
+    form.addEventListener("submit", function(e){
+        e.preventDefault();
+
+        const shippingData = {
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value,
+            address: document.getElementById("address").value,
+            city: document.getElementById("city").value,
+            state: document.getElementById("state").value,
+            pincode: document.getElementById("pincode").value
+        };
+
+        // VALIDATION
+        if (shippingData.phone.length !== 10) {
+            alert("Enter valid 10-digit phone number");
+            return;
+        }
+
+        // SAVE SHIPPING
+        localStorage.setItem("shipping", JSON.stringify(shippingData));
+
+        // CREATE MESSAGE
+        let message = "🛒 *New Order - Shyam Creation*%0A%0A";
+
+        cart.forEach(p => {
+            message += `• ${p.name} - ₹${p.price}%0A`;
+        });
+
+        message += `%0ATotal: ₹${total}%0A%0A`;
+
+        message += `🚚 *Shipping Details*%0A`;
+        message += `Name: ${shippingData.name}%0A`;
+        message += `Phone: ${shippingData.phone}%0A`;
+        message += `Address: ${shippingData.address}, ${shippingData.city}, ${shippingData.state} - ${shippingData.pincode}`;
+
+        const url = `https://wa.me/918660165085?text=${message}`;
+
+        window.open(url, "_blank");
+    });
+
+    container.appendChild(form);
 }
 
 renderCart();
