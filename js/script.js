@@ -584,8 +584,10 @@ style="
 position:absolute;
 top:10px;
 left:10px;
-width:40px;
-height:40px;
+width:50px;
+height:50px;
+background:white;
+box-shadow:0 4px 15px rgba(0,0,0,.15);
 border:none;
 border-radius:50%;
 cursor:pointer;
@@ -621,10 +623,10 @@ qty === 0
 ?
 `
 <button
-class="add-cart-btn"
+class="modern-cart-btn"
 data-id="${product.id}">
 
-Add To Cart
+🛒 Add To Cart
 
 </button>
 `
@@ -636,7 +638,7 @@ Add To Cart
 class="minus-btn"
 data-id="${product.id}">
 
--
+➖
 
 </button>
 
@@ -650,7 +652,7 @@ ${qty}
 class="plus-btn"
 data-id="${product.id}">
 
-+
+➕
 
 </button>
 
@@ -659,10 +661,10 @@ data-id="${product.id}">
 }
 
 <button
-class="quick-view-btn"
+class="modern-view-btn"
 data-view="${product.id}">
 
-Quick View
+👁 Quick View
 
 </button>
 
