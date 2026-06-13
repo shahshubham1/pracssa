@@ -10,7 +10,7 @@ const cartCount = document.getElementById("cart-count");
 ========================= */
 
 function updateCart() {
-    cart = JSON.parse(localStorage.getItem("cart")) || []; // 🔥 important fix
+    cart = JSON.parse(localStorage.getItem("cart")) || [];
     if (cartCount) {
         cartCount.textContent = cart.length;
     }
@@ -32,7 +32,7 @@ async function loadProducts() {
         const res = await fetch("products.json");
         products = await res.json();
         displayProducts(products);
-        updateCart(); // ensure cart count loads correctly
+        updateCart();
     } catch (error) {
         console.error("Error loading products:", error);
         container.innerHTML = `
@@ -129,7 +129,7 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
 });
 
 /* =========================
-   🔥 SYNC CART BETWEEN PAGES
+   CART SYNC
 ========================= */
 
 window.addEventListener("storage", () => {
@@ -143,6 +143,10 @@ window.addEventListener("storage", () => {
 loadProducts();
 updateCart();
 
+/* =========================
+   USER SYSTEM
+========================= */
+
 function checkUser() {
     const userBox = document.getElementById("user-box");
     const user = JSON.parse(localStorage.getItem("currentUser"));
@@ -150,7 +154,6 @@ function checkUser() {
     if (userBox && user) {
         userBox.innerHTML = `
             👤 ${user.name}
-            <button onclick="logout()">Logout</button>
         `;
     }
 }
@@ -161,6 +164,10 @@ function logout() {
 }
 
 checkUser();
+
+/* =========================
+   PROFILE DROPDOWN
+========================= */
 
 function setupProfile() {
     const box = document.getElementById("profile-box");
@@ -182,7 +189,7 @@ function setupProfile() {
 
         <div class="dropdown" id="dropdown">
             <a href="#">My Profile</a>
-            <a href="#">My Orders</a>
+            <a href="#" onclick="openOrders()">📦 My Orders</a>
             <a href="#" onclick="logoutUser()">🚪 Sign Out</a>
         </div>
     `;
@@ -195,7 +202,6 @@ function toggleDropdown() {
     dd.style.display = dd.style.display === "block" ? "none" : "block";
 }
 
-// close dropdown when clicking outside
 document.addEventListener("click", function(e){
     const box = document.getElementById("profile-box");
     const dd = document.getElementById("dropdown");
@@ -210,6 +216,85 @@ document.addEventListener("click", function(e){
 function logoutUser() {
     localStorage.removeItem("currentUser");
     location.reload();
+}
+
+/* =========================
+   ORDER HISTORY SYSTEM (NEW)
+========================= */
+
+function openOrders() {
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+    let html = "";
+
+    if (orders.length === 0) {
+        html = "<p style='text-align:center'>No orders yet</p>";
+    } else {
+        orders.reverse().forEach(order => {
+
+            let items = order.items.map(i =>
+                `<li>${i.name} - ₹${i.price}</li>`
+            ).join("");
+
+            html += `
+                <div style="
+                    background:#fff;
+                    padding:15px;
+                    margin-bottom:10px;
+                    border-radius:10px;
+                    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+                ">
+                    <h4>Order ID: ${order.orderId}</h4>
+                    <p>Date: ${order.date}</p>
+                    <p>Total: ₹${order.total}</p>
+                    <ul>${items}</ul>
+                </div>
+            `;
+        });
+    }
+
+    const panel = document.createElement("div");
+    panel.id = "orders-panel";
+    panel.innerHTML = `
+        <div style="
+            position:fixed;
+            top:0;left:0;
+            width:100%;height:100%;
+            background:rgba(0,0,0,0.6);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            z-index:9999;
+        ">
+            <div style="
+                background:white;
+                width:90%;
+                max-width:500px;
+                padding:20px;
+                border-radius:10px;
+                max-height:80vh;
+                overflow:auto;
+            ">
+                <h2>📦 My Orders</h2>
+                ${html}
+                <br>
+                <button onclick="closeOrders()" style="
+                    padding:10px 15px;
+                    background:red;
+                    color:white;
+                    border:none;
+                    border-radius:8px;
+                ">Close</button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(panel);
+}
+
+function closeOrders() {
+    const panel = document.getElementById("orders-panel");
+    if (panel) panel.remove();
 }
 
 setupProfile();
