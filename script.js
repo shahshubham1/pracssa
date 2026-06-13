@@ -142,3 +142,22 @@ window.addEventListener("storage", () => {
 
 loadProducts();
 updateCart();
+
+function checkUser() {
+    const userBox = document.getElementById("user-box");
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (userBox && user) {
+        userBox.innerHTML = `
+            👤 ${user.name}
+            <button onclick="logout()">Logout</button>
+        `;
+    }
+}
+
+function logout() {
+    localStorage.removeItem("currentUser");
+    location.reload();
+}
+
+checkUser();
