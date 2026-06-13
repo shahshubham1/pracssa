@@ -584,10 +584,8 @@ style="
 position:absolute;
 top:10px;
 left:10px;
-width:50px;
-height:50px;
-background:white;
-box-shadow:0 4px 15px rgba(0,0,0,.15);
+width:40px;
+height:40px;
 border:none;
 border-radius:50%;
 cursor:pointer;
@@ -623,10 +621,10 @@ qty === 0
 ?
 `
 <button
-class="modern-cart-btn"
+class="add-cart-btn"
 data-id="${product.id}">
 
-🛒 Add To Cart
+Add To Cart
 
 </button>
 `
@@ -638,7 +636,7 @@ data-id="${product.id}">
 class="minus-btn"
 data-id="${product.id}">
 
-➖
+-
 
 </button>
 
@@ -652,7 +650,7 @@ ${qty}
 class="plus-btn"
 data-id="${product.id}">
 
-➕
++
 
 </button>
 
@@ -661,10 +659,10 @@ data-id="${product.id}">
 }
 
 <button
-class="modern-view-btn"
+class="quick-view-btn"
 data-view="${product.id}">
 
-👁 Quick View
+Quick View
 
 </button>
 
@@ -688,118 +686,40 @@ bindProductEvents();
    PRODUCT EVENTS
 ===================================== */
 
-/* =====================================
-   PRODUCT EVENTS
-===================================== */
-
 function bindProductEvents(){
 
-    /* ADD TO CART */
+/* ADD CART */
 
-    document
-    .querySelectorAll(".modern-cart-btn")
-    .forEach(btn=>{
+document
+.querySelectorAll(
+".add-cart-btn"
+)
+.forEach(btn=>{
 
-        btn.addEventListener("click",()=>{
+btn.addEventListener(
+"click",
+()=>{
 
-            const id = Number(btn.dataset.id);
+const id =
+Number(
+btn.dataset.id
+);
 
-            const product =
-            products.find(
-                p => p.id === id
-            );
+const product =
+products.find(
+p => p.id === id
+);
 
-            if(product){
-                addToCart(product);
-            }
+if(product){
 
-        });
-
-    });
-
-    /* PLUS */
-
-    document
-    .querySelectorAll(".plus-btn")
-    .forEach(btn=>{
-
-        btn.addEventListener("click",()=>{
-
-            increaseQty(
-                Number(btn.dataset.id)
-            );
-
-        });
-
-    });
-
-    /* MINUS */
-
-    document
-    .querySelectorAll(".minus-btn")
-    .forEach(btn=>{
-
-        btn.addEventListener("click",()=>{
-
-            decreaseQty(
-                Number(btn.dataset.id)
-            );
-
-        });
-
-    });
-
-    /* QUICK VIEW */
-
-    document
-    .querySelectorAll(".modern-view-btn")
-    .forEach(btn=>{
-
-        btn.addEventListener("click",()=>{
-
-            const id =
-            Number(btn.dataset.view);
-
-            const product =
-            products.find(
-                p => p.id === id
-            );
-
-            if(product){
-                openProductModal(product);
-            }
-
-        });
-
-    });
-
-    /* WISHLIST */
-
-    document
-    .querySelectorAll(".wishlist-heart")
-    .forEach(btn=>{
-
-        btn.addEventListener("click",()=>{
-
-            const id =
-            Number(btn.dataset.id);
-
-            const product =
-            products.find(
-                p => p.id === id
-            );
-
-            if(product){
-                toggleWishlist(product);
-            }
-
-        });
-
-    });
+addToCart(product);
 
 }
 
+}
+);
 
+});
 
 /* PLUS */
 
