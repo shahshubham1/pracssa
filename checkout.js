@@ -1,3 +1,10 @@
+const user = JSON.parse(localStorage.getItem("currentUser"));
+
+if (!user) {
+    alert("Please sign in first");
+    window.location.href = "auth.html";
+}
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const container = document.getElementById("cart-container");
