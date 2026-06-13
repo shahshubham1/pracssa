@@ -161,3 +161,55 @@ function logout() {
 }
 
 checkUser();
+
+function setupProfile() {
+    const box = document.getElementById("profile-box");
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (!box) return;
+
+    if (!user) {
+        box.innerHTML = `
+            <a href="auth.html" class="profile-btn">👤 Sign In</a>
+        `;
+        return;
+    }
+
+    box.innerHTML = `
+        <button class="profile-btn" onclick="toggleDropdown()">
+            👤 ${user.name}
+        </button>
+
+        <div class="dropdown" id="dropdown">
+            <a href="#">My Profile</a>
+            <a href="#">My Orders</a>
+            <a href="#" onclick="logoutUser()">🚪 Sign Out</a>
+        </div>
+    `;
+}
+
+function toggleDropdown() {
+    const dd = document.getElementById("dropdown");
+    if (!dd) return;
+
+    dd.style.display = dd.style.display === "block" ? "none" : "block";
+}
+
+// close dropdown when clicking outside
+document.addEventListener("click", function(e){
+    const box = document.getElementById("profile-box");
+    const dd = document.getElementById("dropdown");
+
+    if (!box || !dd) return;
+
+    if (!box.contains(e.target)) {
+        dd.style.display = "none";
+    }
+});
+
+function logoutUser() {
+    localStorage.removeItem("currentUser");
+    location.reload();
+}
+
+setupProfile();
