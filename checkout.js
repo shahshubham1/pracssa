@@ -72,6 +72,10 @@ function renderCart() {
         e.preventDefault();
 
         const shippingData = {
+            if (!shippingData.name || !shippingData.phone || !shippingData.address) {
+    alert("Please fill all details");
+    return;
+}
             name: document.getElementById("name").value,
             phone: document.getElementById("phone").value,
             address: document.getElementById("address").value,
@@ -90,7 +94,10 @@ function renderCart() {
         localStorage.setItem("shipping", JSON.stringify(shippingData));
 
         // CREATE MESSAGE
-        let message = "🛒 *New Order - Shyam Creation*%0A%0A";
+        const orderId = "ORD" + Date.now();
+
+        let message = `🛒 *New Order - Shyam Creation*%0A`;
+        message += `Order ID: ${orderId}%0A%0A`;
 
         cart.forEach(p => {
             message += `• ${p.name} - ₹${p.price}%0A`;
@@ -106,6 +113,10 @@ function renderCart() {
         const url = `https://wa.me/918660165085?text=${message}`;
 
         window.open(url, "_blank");
+
+        localStorage.removeItem("cart");
+        cart = [];
+        renderCart();
     });
 
     container.appendChild(form);
