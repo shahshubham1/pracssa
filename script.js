@@ -10,7 +10,7 @@ const cartCount = document.getElementById("cart-count");
 ========================= */
 
 function updateCart() {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    cart = JSON.parse(localStorage.getItem("cart")) || []; // 🔥 important fix
     if (cartCount) {
         cartCount.textContent = cart.length;
     }
@@ -18,6 +18,7 @@ function updateCart() {
 
 function addToCart(product) {
     cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
     updateCart();
     alert(`${product.name} added to cart 🛒`);
 }
@@ -31,7 +32,7 @@ async function loadProducts() {
         const res = await fetch("products.json");
         products = await res.json();
         displayProducts(products);
-        updateCart();
+        updateCart(); // ensure cart count loads correctly
     } catch (error) {
         console.error("Error loading products:", error);
         container.innerHTML = `
@@ -84,7 +85,6 @@ function displayProducts(list) {
             </div>
         `;
 
-        // ADD TO CART EVENT
         card.querySelector(".cart-btn-item").addEventListener("click", () => {
             addToCart(product);
         });
@@ -129,7 +129,16 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
 });
 
 /* =========================
+   🔥 SYNC CART BETWEEN PAGES
+========================= */
+
+window.addEventListener("storage", () => {
+    updateCart();
+});
+
+/* =========================
    INIT
 ========================= */
 
 loadProducts();
+updateCart();
