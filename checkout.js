@@ -2,9 +2,20 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const container = document.getElementById("cart-container");
 
+// GLOBAL TOTAL (FIX)
+let total = 0;
+
 function renderCart() {
 
-    if (!container) return;
+    if (!container) {
+        console.error("cart-container not found");
+        document.body.innerHTML = `
+            <h3 style="text-align:center;margin-top:50px">
+                Checkout error: cart container missing
+            </h3>
+        `;
+        return;
+    }
 
     container.innerHTML = "";
 
@@ -19,9 +30,11 @@ function renderCart() {
         return;
     }
 
-    let total = 0;
+    // RESET TOTAL (FIX)
+    total = 0;
 
     cart.forEach((item, index) => {
+
         total += item.price;
 
         const div = document.createElement("div");
@@ -70,28 +83,43 @@ function renderCart() {
         e.preventDefault();
 
         const shippingData = {
-            name: name.value,
-            phone: phone.value,
-            address: address.value,
-            city: city.value,
-            state: state.value,
-            pincode: pincode.value
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value,
+            address: document.getElementById("address").value,
+            city: document.getElementById("city").value,
+            state: document.getElementById("state").value,
+            pincode: document.getElementById("pincode").value
         };
 
         let orderId = "ORD" + Date.now();
 
-        let message = `🛒 New Order\nOrder ID: ${orderId}\n\n`;
+        let message = `🛒 New Order - Shyam Creation\n`;
+        message += `Order ID: ${orderId}\n\n`;
 
         cart.forEach(p => {
             message += `• ${p.name} - ₹${p.price}\n`;
         });
 
         message += `\nTotal: ₹${total}\n\n`;
-        message += `Shipping:\n${shippingData.name}\n${shippingData.phone}\n${shippingData.address}`;
+
+        message += `🚚 Shipping Details:\n`;
+        message += `Name: ${shippingData.name}\n`;
+        message += `Phone: ${shippingData.phone}\n`;
+        message += `Address: ${shippingData.address}, ${shippingData.city}, ${shippingData.state} - ${shippingData.pincode}`;
 
         const url = `https://wa.me/918660165085?text=${encodeURIComponent(message)}`;
 
-        window.open(url, "_blank");
+        try {
+            window.open(url, "_blank");
+        } catch (err) {
+            alert("WhatsApp failed to open");
+            console.error(err);
+        }
+
+        // CLEAR CART AFTER ORDER
+        localStorage.removeItem("cart");
+        cart = [];
+        renderCart();
     });
 
     container.appendChild(form);
