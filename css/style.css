@@ -732,22 +732,4 @@ min-width:30px;
 text-align:center;
 }
 
-.card{
-position:relative;
-overflow:hidden;
-}
-
-.card img{
-transition:.4s;
-}
-
-.card:hover img{
-transform:scale(1.05);
-}
-
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 15px 40px rgba(0,0,0,.12);
-}
-
 }
