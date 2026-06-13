@@ -51,6 +51,14 @@ font-weight:800;
 color:#ff4081;
 }
 
+/* 👇 USER BOX ADDED STYLE */
+#user-box{
+font-size:14px;
+color:#333;
+margin-left:10px;
+font-weight:500;
+}
+
 nav{
 display:flex;
 align-items:center;
@@ -192,17 +200,6 @@ font-weight:600;
 cursor:pointer;
 }
 
-.buy-btn{
-display:block;
-text-align:center;
-background:#25D366;
-color:white;
-text-decoration:none;
-padding:12px;
-border-radius:10px;
-font-weight:600;
-}
-
 /* SOCIAL */
 .social-icons{
 margin-top:20px;
@@ -281,12 +278,21 @@ z-index:999;
 <!-- HEADER -->
 <header>
 
-<div class="logo">Shyam Creation</div>
+<div class="logo">
+Shyam Creation
+</div>
+
+<!-- 👇 USER DISPLAY ADDED HERE -->
+<div id="user-box"></div>
 
 <nav>
 <a href="#products">Products</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
+
+<a href="auth.html" class="cart-btn" style="background:#333;">
+👤 Sign In
+</a>
 
 <a href="checkout.html" class="cart-btn">
 🛒 Checkout
