@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,440 +8,447 @@
 
 <title>Shyam Creation | Women's Fashion Store</title>
 
-<meta name="description" content="Shyam Creation - Latest Sarees, Kurtis, Anarkalis and Western Wear. Order directly through WhatsApp.">
-<meta name="keywords" content="Saree, Kurti, Anarkali, Western Wear, Shyam Creation">
-<meta name="author" content="Shubham Shah">
+<meta name="description"
+content="Premium Sarees, Kurtis, Anarkalis and Western Wear. Shop the latest women's fashion at Shyam Creation.">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="keywords"
+content="Saree, Kurti, Anarkali, Western Wear, Women's Fashion, Shyam Creation">
 
-<style>
+<meta name="author"
+content="Shubham Shah">
 
-/* RESET */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+<meta property="og:title"
+content="Shyam Creation">
 
-html{scroll-behavior:smooth;}
+<meta property="og:description"
+content="Latest Women's Fashion Collection">
 
-body{
-background:#fafafa;
-color:#333;
-}
+<meta property="og:image"
+content="images/hero-banner.jpg">
 
-/* HEADER */
-header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:#fff;
-padding:15px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 2px 15px rgba(0,0,0,.08);
-z-index:1000;
-}
+<meta property="og:type"
+content="website">
 
-.logo{
-font-size:30px;
-font-weight:800;
-color:#ff4081;
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-/* PROFILE DROPDOWN */
-.profile-box {
-position: relative;
-display: inline-block;
-}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
 
-.profile-btn {
-background:#333;
-color:white;
-padding:8px 12px;
-border-radius:20px;
-cursor:pointer;
-font-weight:600;
-border:none;
-}
-
-.dropdown {
-display:none;
-position:absolute;
-right:0;
-top:40px;
-background:white;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
-border-radius:10px;
-overflow:hidden;
-min-width:160px;
-z-index:999;
-}
-
-.dropdown a {
-display:block;
-padding:10px;
-text-decoration:none;
-color:#333;
-font-size:14px;
-}
-
-.dropdown a:hover {
-background:#f2f2f2;
-}
-
-/* NAV */
-nav{
-display:flex;
-align-items:center;
-gap:15px;
-}
-
-nav a{
-text-decoration:none;
-font-weight:500;
-color:#333;
-}
-
-nav a:hover{
-color:#ff4081;
-}
-
-/* CART BUTTON */
-.cart-btn{
-text-decoration:none;
-background:#ff4081;
-color:white;
-padding:8px 15px;
-border-radius:20px;
-font-weight:600;
-}
-
-/* HERO */
-.hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
-url('images/hero-banner.jpg');
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-/* SECTION */
-.section{
-padding:90px 8%;
-}
-
-.section-title{
-font-size:42px;
-text-align:center;
-margin-bottom:30px;
-}
-
-/* SEARCH */
-.search-box{
-max-width:600px;
-margin:auto;
-margin-bottom:25px;
-}
-
-.search-box input{
-width:100%;
-padding:15px;
-border:1px solid #ddd;
-border-radius:10px;
-font-size:16px;
-}
-
-/* FILTERS */
-.filters{
-text-align:center;
-margin-bottom:25px;
-}
-
-.filter-btn{
-padding:10px 20px;
-border:none;
-background:#ff4081;
-color:white;
-border-radius:25px;
-margin:5px;
-cursor:pointer;
-font-weight:600;
-}
-
-/* PRODUCTS GRID */
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
-
-/* CARD */
-.card{
-background:white;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-6px);
-}
-
-.card img{
-width:100%;
-height:350px;
-object-fit:cover;
-}
-
-.card-content{
-padding:20px;
-}
-
-.category{
-display:inline-block;
-background:#ffe4ef;
-color:#ff4081;
-padding:5px 12px;
-border-radius:20px;
-font-size:13px;
-}
-
-.price{
-font-size:24px;
-font-weight:700;
-color:#ff4081;
-margin:15px 0;
-}
-
-/* BUTTONS */
-.cart-btn-item{
-width:100%;
-padding:12px;
-margin:10px 0;
-border:none;
-border-radius:10px;
-background:#ff9800;
-color:white;
-font-weight:600;
-cursor:pointer;
-}
-
-/* SOCIAL */
-.social-icons{
-margin-top:20px;
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.social-icons a{
-text-decoration:none;
-background:white;
-padding:10px 15px;
-border-radius:25px;
-font-weight:600;
-color:#333;
-transition:0.3s;
-}
-
-.social-icons a:hover{
-background:#000;
-color:#fff;
-}
-
-/* CONTACT */
-.contact{
-background:linear-gradient(135deg,#ff4081,#ff9800);
-color:white;
-text-align:center;
-}
-
-/* FOOTER */
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:25px;
-}
-
-/* WHATSAPP FLOAT */
-.whatsapp-float{
-position:fixed;
-right:20px;
-bottom:20px;
-width:60px;
-height:60px;
-background:#25D366;
-color:white;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
-text-decoration:none;
-}
-
-/* CART BOX */
-.cart-box{
-position:fixed;
-left:20px;
-bottom:20px;
-background:#111;
-color:#fff;
-padding:10px 15px;
-border-radius:10px;
-font-weight:600;
-z-index:999;
-}
-
-</style>
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
+<!-- =========================
+HEADER
+========================= -->
 
-<div class="logo">Shyam Creation</div>
+<header class="header">
 
-<nav>
-<a href="#products">Products</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
+    <div class="logo">
+        Shyam Creation
+    </div>
 
-<!-- 🛒 CHECKOUT FIRST -->
-<a href="checkout.html" class="cart-btn">
-🛒 Checkout
-</a>
+    <nav class="navbar">
 
-<!-- 👤 PROFILE AFTER CHECKOUT -->
-<div class="profile-box" id="profile-box"></div>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
 
-</nav>
+    </nav>
+
+    <div class="header-actions">
+
+        <button id="wishlist-btn" class="icon-btn">
+            ❤️
+            <span id="wishlist-count">0</span>
+        </button>
+
+        <a href="checkout.html" class="checkout-btn">
+            🛒 Cart
+            <span id="cart-count">0</span>
+        </a>
+
+        <div id="profile-box"></div>
+
+    </div>
 
 </header>
 
-<!-- CART STATUS -->
-<div class="cart-box">
-🛒 Cart: <span id="cart-count">0</span>
+<!-- =========================
+MOBILE MENU
+========================= -->
+
+<div class="mobile-menu" id="mobile-menu">
+
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+
 </div>
 
-<!-- HERO -->
-<section class="hero"></section>
+<!-- =========================
+HERO SECTION
+========================= -->
 
-<!-- PRODUCTS -->
+<section class="hero" id="home">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <span class="hero-tag">
+            ✨ New Collection 2026
+        </span>
+
+        <h1>
+            Elevate Your Style
+        </h1>
+
+        <p>
+            Discover premium Sarees, Kurtis, Anarkalis and
+            Western Wear designed for modern women.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#products" class="primary-btn">
+                Shop Now
+            </a>
+
+            <a href="#about" class="secondary-btn">
+                Learn More
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+FEATURES
+========================= -->
+
+<section class="features">
+
+    <div class="feature-card">
+        🚚
+        <h3>Fast Delivery</h3>
+        <p>Quick shipping across India.</p>
+    </div>
+
+    <div class="feature-card">
+        💎
+        <h3>Premium Quality</h3>
+        <p>Handpicked fashion collections.</p>
+    </div>
+
+    <div class="feature-card">
+        🔒
+        <h3>Secure Shopping</h3>
+        <p>Safe checkout experience.</p>
+    </div>
+
+    <div class="feature-card">
+        ❤️
+        <h3>Customer Support</h3>
+        <p>Always available on WhatsApp.</p>
+    </div>
+
+</section>
+
+<!-- =========================
+PRODUCTS
+========================= -->
+
 <section class="section" id="products">
 
-<h2 class="section-title">Our Collection</h2>
+    <div class="section-header">
 
-<div class="search-box">
-<input type="text" id="searchInput" placeholder="Search products...">
-</div>
+        <h2>
+            Our Collection
+        </h2>
 
-<div class="filters">
-<button class="filter-btn">All</button>
-<button class="filter-btn">Saree</button>
-<button class="filter-btn">Kurti</button>
-<button class="filter-btn">Anarkali</button>
-<button class="filter-btn">Western</button>
-</div>
+        <p>
+            Browse our latest fashion arrivals.
+        </p>
 
-<div class="products" id="product-container"></div>
+    </div>
+
+    <!-- SEARCH -->
+
+    <div class="search-wrapper">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search products, category, description...">
+
+    </div>
+
+    <!-- FILTERS -->
+
+    <div class="filters">
+
+        <button class="filter-btn active">
+            All
+        </button>
+
+        <button class="filter-btn">
+            Saree
+        </button>
+
+        <button class="filter-btn">
+            Kurti
+        </button>
+
+        <button class="filter-btn">
+            Anarkali
+        </button>
+
+        <button class="filter-btn">
+            Western
+        </button>
+
+    </div>
+
+    <!-- SORT -->
+
+    <div class="sort-box">
+
+        <select id="sortSelect">
+
+            <option value="default">
+                Sort Products
+            </option>
+
+            <option value="low">
+                Price Low → High
+            </option>
+
+            <option value="high">
+                Price High → Low
+            </option>
+
+            <option value="name">
+                Name A → Z
+            </option>
+
+        </select>
+
+    </div>
+
+    <!-- PRODUCTS GRID -->
+
+    <div
+        class="products-grid"
+        id="product-container">
+    </div>
 
 </section>
 
-<!-- ABOUT -->
-<section class="section" id="about">
+<!-- =========================
+ABOUT
+========================= -->
 
-<h2 class="section-title">About Shyam Creation</h2>
+<section class="about-section" id="about">
 
-<p style="max-width:900px;margin:auto;text-align:center;line-height:1.8;">
-We offer premium Sarees, Kurtis, Anarkalis and Western Wear.
-Order easily via WhatsApp or checkout page.
-</p>
+    <div class="about-content">
 
-</section>
+        <h2>
+            About Shyam Creation
+        </h2>
 
-<!-- CONTACT -->
-<section class="section contact" id="contact">
+        <p>
+            Shyam Creation brings together elegance,
+            tradition and modern fashion. We specialize
+            in premium Sarees, Kurtis, Anarkalis and
+            Western Wear for women who love style
+            and comfort.
+        </p>
 
-<h2>Contact Us</h2>
+        <p>
+            Our mission is to provide high-quality
+            fashion at affordable prices while ensuring
+            a seamless shopping experience.
+        </p>
 
-<p>Store: Shyam Creation</p>
-<p>Owner: Shubham Shah</p>
-<p>Phone: +91 8660165085</p>
-
-<a class="buy-btn" href="https://wa.me/918660165085" target="_blank">
-Chat on WhatsApp
-</a>
-
-<div class="social-icons">
-<a href="https://instagram.com" target="_blank">Instagram</a>
-<a href="https://facebook.com" target="_blank">Facebook</a>
-<a href="https://x.com" target="_blank">X (Twitter)</a>
-</div>
+    </div>
 
 </section>
 
-<!-- FOOTER -->
+<!-- =========================
+CONTACT
+========================= -->
+
+<section class="contact-section" id="contact">
+
+    <h2>
+        Contact Us
+    </h2>
+
+    <p>
+        We'd love to hear from you.
+    </p>
+
+    <div class="contact-info">
+
+        <div>
+            👤 Shubham Shah
+        </div>
+
+        <div>
+            📞 +91 8660165085
+        </div>
+
+        <div>
+            📍 India
+        </div>
+
+    </div>
+
+    <a
+        href="https://wa.me/918660165085"
+        target="_blank"
+        class="whatsapp-btn">
+
+        Chat on WhatsApp
+
+    </a>
+
+</section>
+
+<!-- =========================
+FOOTER
+========================= -->
+
 <footer>
-<p>© 2026 Shyam Creation</p>
-<p>Owner: Shubham Shah</p>
+
+    <div class="footer-content">
+
+        <h3>
+            Shyam Creation
+        </h3>
+
+        <p>
+            Women's Fashion Store
+        </p>
+
+        <div class="social-links">
+
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">X</a>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 Shyam Creation. All Rights Reserved.
+        </p>
+
+    </div>
+
 </footer>
 
-<!-- FLOAT WHATSAPP -->
-<a class="whatsapp-float" href="https://wa.me/918660165085" target="_blank">💬</a>
+<!-- =========================
+PRODUCT QUICK VIEW MODAL
+========================= -->
 
-<!-- SCRIPT -->
-<script src="script.js"></script>
+<div class="modal" id="productModal">
 
-<div id="orders-panel" style="
-display:none;
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:rgba(0,0,0,0.6);
-z-index:9999;
-">
+    <div class="modal-content">
 
-<div style="
-background:white;
-max-width:600px;
-margin:80px auto;
-padding:20px;
-border-radius:10px;
-max-height:70vh;
-overflow:auto;
-">
+        <span
+            class="close-modal"
+            id="closeModal">
+            &times;
+        </span>
 
-<h2>📦 My Orders</h2>
+        <div id="modalBody">
+        </div>
 
-<div id="orders-list"></div>
-
-<br>
-<button onclick="closeOrders()" style="
-padding:10px 15px;
-background:red;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-">
-Close
-</button>
+    </div>
 
 </div>
+
+<!-- =========================
+WISHLIST PANEL
+========================= -->
+
+<div
+    class="wishlist-panel"
+    id="wishlistPanel">
+
+    <div class="wishlist-header">
+
+        <h3>
+            ❤️ Wishlist
+        </h3>
+
+        <button id="closeWishlist">
+            ✕
+        </button>
+
+    </div>
+
+    <div id="wishlistItems">
+    </div>
+
 </div>
+
+<!-- =========================
+ORDER HISTORY MODAL
+========================= -->
+
+<div
+    class="orders-modal"
+    id="ordersModal">
+
+    <div class="orders-content">
+
+        <h2>
+            📦 My Orders
+        </h2>
+
+        <div id="ordersList">
+        </div>
+
+        <button
+            id="closeOrders"
+            class="danger-btn">
+
+            Close
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =========================
+FLOATING WHATSAPP
+========================= -->
+
+<a
+    href="https://wa.me/918660165085"
+    target="_blank"
+    class="floating-whatsapp">
+
+    💬
+
+</a>
+
+<!-- =========================
+JAVASCRIPT
+========================= -->
+
+<script src="js/wishlist.js"></script>
+<script src="js/script.js"></script>
+
 </body>
 </html>
