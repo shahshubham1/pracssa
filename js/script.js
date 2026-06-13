@@ -688,40 +688,118 @@ bindProductEvents();
    PRODUCT EVENTS
 ===================================== */
 
+/* =====================================
+   PRODUCT EVENTS
+===================================== */
+
 function bindProductEvents(){
 
-/* ADD CART */
+    /* ADD TO CART */
 
-document
-.querySelectorAll(
-".add-cart-btn"
-)
-.forEach(btn=>{
+    document
+    .querySelectorAll(".modern-cart-btn")
+    .forEach(btn=>{
 
-btn.addEventListener(
-"click",
-()=>{
+        btn.addEventListener("click",()=>{
 
-const id =
-Number(
-btn.dataset.id
-);
+            const id = Number(btn.dataset.id);
 
-const product =
-products.find(
-p => p.id === id
-);
+            const product =
+            products.find(
+                p => p.id === id
+            );
 
-if(product){
+            if(product){
+                addToCart(product);
+            }
 
-addToCart(product);
+        });
+
+    });
+
+    /* PLUS */
+
+    document
+    .querySelectorAll(".plus-btn")
+    .forEach(btn=>{
+
+        btn.addEventListener("click",()=>{
+
+            increaseQty(
+                Number(btn.dataset.id)
+            );
+
+        });
+
+    });
+
+    /* MINUS */
+
+    document
+    .querySelectorAll(".minus-btn")
+    .forEach(btn=>{
+
+        btn.addEventListener("click",()=>{
+
+            decreaseQty(
+                Number(btn.dataset.id)
+            );
+
+        });
+
+    });
+
+    /* QUICK VIEW */
+
+    document
+    .querySelectorAll(".modern-view-btn")
+    .forEach(btn=>{
+
+        btn.addEventListener("click",()=>{
+
+            const id =
+            Number(btn.dataset.view);
+
+            const product =
+            products.find(
+                p => p.id === id
+            );
+
+            if(product){
+                openProductModal(product);
+            }
+
+        });
+
+    });
+
+    /* WISHLIST */
+
+    document
+    .querySelectorAll(".wishlist-heart")
+    .forEach(btn=>{
+
+        btn.addEventListener("click",()=>{
+
+            const id =
+            Number(btn.dataset.id);
+
+            const product =
+            products.find(
+                p => p.id === id
+            );
+
+            if(product){
+                toggleWishlist(product);
+            }
+
+        });
+
+    });
 
 }
 
-}
-);
 
-});
 
 /* PLUS */
 
