@@ -2,22 +2,21 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const container = document.getElementById("cart-container");
 
-// Render cart
+// GLOBAL TOTAL
+let total = 0;
+
 function renderCart() {
 
     if (!container) {
         console.error("cart-container not found");
-        document.body.innerHTML = `
-            <h3 style="text-align:center;margin-top:50px">
-                Checkout error: cart container missing
-            </h3>
-        `;
+        document.body.innerHTML = `<h3 style="text-align:center;margin-top:50px">
+            Checkout error: cart container missing
+        </h3>`;
         return;
     }
 
     container.innerHTML = "";
 
-    // Empty cart UI
     if (cart.length === 0) {
         container.innerHTML = `
             <div class="empty">
@@ -29,11 +28,11 @@ function renderCart() {
         return;
     }
 
-    // FIXED TOTAL CALCULATION
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    total = 0;
 
-    // Render items
-    cart.forEach((item) => {
+    cart.forEach((item, index) => {
+
+        total += item.price;
 
         const div = document.createElement("div");
         div.className = "cart-item";
@@ -43,12 +42,12 @@ function renderCart() {
                 <h4>${item.name}</h4>
                 <p class="price">₹${item.price}</p>
             </div>
+
             <button class="remove-btn">Remove</button>
         `;
 
-        // Safer remove logic
         div.querySelector(".remove-btn").addEventListener("click", () => {
-            cart.splice(cart.indexOf(item), 1);
+            cart.splice(index, 1);
             localStorage.setItem("cart", JSON.stringify(cart));
             renderCart();
         });
@@ -56,7 +55,6 @@ function renderCart() {
         container.appendChild(div);
     });
 
-    // Total display
     const totalDiv = document.createElement("div");
     totalDiv.className = "total";
     totalDiv.innerHTML = `Total: ₹${total}`;
@@ -75,12 +73,10 @@ function renderCart() {
         <input id="state" placeholder="State" required>
         <input id="pincode" placeholder="Pincode" required>
 
-        <button type="submit" class="checkout-btn">
-            Place Order on WhatsApp
-        </button>
+        <button class="checkout-btn">Place Order on WhatsApp</button>
     `;
 
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", function(e){
         e.preventDefault();
 
         const shippingData = {
@@ -92,7 +88,7 @@ function renderCart() {
             pincode: document.getElementById("pincode").value
         };
 
-        const orderId = "ORD" + Date.now();
+        let orderId = "ORD" + Date.now();
 
         let message = `🛒 New Order - Shyam Creation\n`;
         message += `Order ID: ${orderId}\n\n`;
@@ -111,24 +107,26 @@ function renderCart() {
         const url = `https://wa.me/918660165085?text=${encodeURIComponent(message)}`;
 
         try {
-            // Clear cart BEFORE redirect
+            container.innerHTML = `
+                <h2 style="text-align:center;margin-top:50px;">
+                    ✅ Redirecting to WhatsApp...
+                </h2>
+            `;
+
             localStorage.removeItem("cart");
             cart = [];
 
-            // Open WhatsApp
             window.open(url, "_blank");
-
-            // Refresh UI
-            renderCart();
 
         } catch (err) {
             alert("WhatsApp failed to open");
             console.error(err);
         }
+
+        renderCart();
     });
 
     container.appendChild(form);
 }
 
-// Initial render
 renderCart();
