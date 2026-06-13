@@ -114,15 +114,32 @@ function renderCart() {
         const url = `https://wa.me/918660165085?text=${encodeURIComponent(message)}`;
 
         try {
+
+            // ✅ 1. SAVE ORDER HISTORY (NEW ADDITION)
+            let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+            orders.push({
+                orderId: orderId,
+                items: cart,
+                total: total,
+                shipping: shippingData,
+                date: new Date().toLocaleString()
+            });
+
+            localStorage.setItem("orders", JSON.stringify(orders));
+
+            // ✅ 2. CLEAR UI
             container.innerHTML = `
                 <h2 style="text-align:center;margin-top:50px;">
                     ✅ Redirecting to WhatsApp...
                 </h2>
             `;
 
+            // ✅ 3. CLEAR CART
             localStorage.removeItem("cart");
             cart = [];
 
+            // open WhatsApp
             window.open(url, "_blank");
 
         } catch (err) {
