@@ -684,4 +684,52 @@ RESPONSIVE
         grid-template-columns:1fr;
     }
 
+    /* PRODUCT CART BADGE */
+
+.cart-badge{
+position:absolute;
+top:10px;
+right:10px;
+background:#ff4081;
+color:white;
+width:30px;
+height:30px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+font-size:14px;
+z-index:5;
+}
+
+/* QUANTITY CONTROLS */
+
+.qty-controls{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+margin-top:12px;
+}
+
+.qty-controls button{
+width:40px;
+height:40px;
+border:none;
+border-radius:8px;
+background:#ff4081;
+color:white;
+font-size:20px;
+cursor:pointer;
+font-weight:700;
+}
+
+.qty-number{
+font-size:18px;
+font-weight:700;
+min-width:30px;
+text-align:center;
+}
+
 }
